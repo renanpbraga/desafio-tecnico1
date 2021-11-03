@@ -13,9 +13,9 @@ const getById = async (id) => {
   return todo;
 };
 
-const createTodo = async ({ todo }) => {
+const createTodo = async ({ todo, todoStatus }) => {
   const db = await connection();
-  const createdTodo = await db.collection('todo').insertOne({ todo });
+  const createdTodo = await db.collection('todo').insertOne({ todo, todoStatus, creationDate: new Date() });
   return createdTodo;
 };
 
