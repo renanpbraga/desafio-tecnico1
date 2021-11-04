@@ -1,36 +1,66 @@
 const CODE = require('http-status-codes');
 const todoModel = require('../models/todoModel');
+const todoService = require('../services/todoService');
 
 const createTodo = async (req, res) => {
-  const { todo, todoStatus } = req.body;
-  const createdTodo = await todoModel.createTodo({ todo, todoStatus });
+  const { todo, statusTodo } = req.body;
 
-  return res.status(CODE.CREATED).json(createdTodo);
+  const todos = await todoService.createTodo({ todo, statusTodo });
+
+  if (todos.message) {
+    return res.status(todos.code).json({
+      message: todo.message,
+    });
+  }
+
+  return res.status(CODE.CREATED).json(todos);
 };
 
-const getAll = async (req, res) => {
-  const allTodos = await todoModel.getAll();
-  return res.status(CODE.OK).json(allTodos);
+const getAll = async (_req, res) => {
+  const todos = await todoModel.getAll();
+  return res.status(CODE.OK).json(todos);
 };
 
 const getById = async (req, res) => {
   const { id } = req.params;
-  const todo = await todoModel.getById(id);
+  const todos = await todoService.getById({ id });
 
-  return res.status(CODE.OK).json(todo);
+  if (todos.message) {
+    return res.status(todos.code).json({
+      message: todos.message,
+    });
+  }
+
+  return res.status(CODE.OK).json(todos);
 };
 
 const updateTodo = async (req, res) => {
+  const { todo, statusTodo } = req.body;
   const { id } = req.params;
-  const { todo, todoStatus } = req.body;
-  const updatedTodo = await todoModel.updateTodo({ todo, todoStatus }, id);
-  return res.status(CODE.OK).json(updatedTodo);
+
+  const todoId = await todoService.updateTodo({ todo, statusTodo }, id);
+  if (todoId.message) {
+    return res.status(todoId.code).json({
+      message: todoId.message,
+    });
+  }
+  return res.status(CODE.OK).json({ _id: id, todo, statusTodo });
 };
 
 const deleteTodo = async (req, res) => {
   const { id } = req.params;
-  const todo = await todoModel.deleteTodo({ id });
-  return res.status(CODE.OK).json(todo);
+
+  const deletedTodo = await todoService.deleteTodo({ id });
+
+  if (deletedTodo.message) {
+    return res.status(deletedTodo.code).json({
+      message: deletedTodo.message,
+    });
+  }
+
+  return res.status(CODE.OK).json({
+    message: 'ToDo deletado com sucesso!',
+  });
 };
 
 module.exports = {
