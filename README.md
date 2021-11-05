@@ -2,6 +2,7 @@
 
 Este desafio técnico teve como obetivo, desenvolver uma aplicação com integração entre aplicação Front-end e Back-end de uma lista de tarefas para uma empresa fictícia chamada "Ebytr". Para isso seria necessário o desenvolvimento de uma API utilizando express com padrão RESTful e arquitetura MSC, banco de dados em MongoDB e Front-end em ReacrJS.
 
+
 ## Back-end
 A aplicação foi criada em padrão RESTful, seguindo a arquitetura MSC.
 O Banco de dados utilizado foi o MongoDB.
@@ -20,6 +21,7 @@ O corpo da tarefa deve estar no seguinte padrão:
 - completed para tarefas completadas;
 - in-progess para tarefas em execução;
 - pending para tarefas não executadas;
+
 
 ## Front-end
 A aplicação foi desenvolvida com a biblioteca ReactJS. Para a estilização foi utilizado o framework Reactstrap (https://reactstrap.github.io), que utiliza o Bootstrap como base e algumas facilidades e compatibilidades com o ReactJS.
