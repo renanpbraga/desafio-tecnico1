@@ -1,6 +1,6 @@
 # Desafio técnico Trybe - Lista de Tarefas
 
-Este desafio técnico teve como obetivo, desenvolver uma aplicação com integração entre aplicação Front-end e Back-end de uma lista de tarefas para uma empresa fictícia chamada "Ebytr". Para isso seria necessário o desenvolvimento de uma API utilizando express com padrão RESTful e arquitetura MSC, banco de dados em MongoDB e Front-end em ReacrJS.
+Este desafio técnico teve como obetivo, desenvolver uma aplicação com integração entre aplicação Front-end e Back-end de uma lista de tarefas para uma empresa fictícia chamada "Ebytr". Para isso seria necessário o desenvolvimento de uma API utilizando express com padrão RESTful e arquitetura MSC, banco de dados em MongoDB e Front-end em ReactJS.
 
 
 ## Back-end
