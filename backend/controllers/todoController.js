@@ -9,7 +9,7 @@ const createTodo = async (req, res) => {
 
   if (todos.message) {
     return res.status(todos.code).json({
-      message: todo.message,
+      message: todos.message,
     });
   }
 

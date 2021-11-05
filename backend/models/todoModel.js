@@ -13,23 +13,23 @@ const getById = async (id) => {
   return todo;
 };
 
-const createTodo = async ({ todo, todoStatus }) => {
+const createTodo = async ({ todo, statusTodo }) => {
   const db = await connection();
-  const createdTodo = await db.collection('todo').insertOne({ todo, todoStatus, creationDate: new Date() });
+  const createdTodo = await db.collection('todo').insertOne({ todo, statusTodo, creationDate: new Date() });
   return createdTodo;
 };
 
-const updateTodo = async ({ todo, todoStatus }, id) => {
+const updateTodo = async ({ todo, statusTodo }, id) => {
   if (!ObjectId.isValid(id)) return null;
   const db = await connection();
   await db.collection('todos').updateOne({ _id: ObjectId(id) },
     {
-      $set: { todo, todoStatus },
+      $set: { todo, statusTodo },
     });
 
   return {
     todo,
-    todoStatus,
+    statusTodo,
     id,
   };
 };

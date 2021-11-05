@@ -7,11 +7,9 @@ const todoValidations = (todo, statusTodo) => {
   const { error } = Joi.object(
     {
       todo: Joi.string().required().not().empty(),
-      statusTodo: Joi.string().required().not().empty()
-        .max(15),
+      statusTodo: Joi.string().required().not().empty(),
     },
   ).validate({ todo, statusTodo });
-
   if (error) {
     return {
       message: error.details[0].message,
