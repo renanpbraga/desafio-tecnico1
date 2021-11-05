@@ -2,6 +2,9 @@
 
 Este desafio técnico teve como obetivo, desenvolver uma aplicação com integração entre aplicação Front-end e Back-end de uma lista de tarefas para uma empresa fictícia chamada "Ebytr". Para isso seria necessário o desenvolvimento de uma API utilizando express com padrão RESTful e arquitetura MSC, banco de dados em MongoDB e Front-end em ReactJS.
 
+## Instalação
+Para instalar a aplicação, basta clonar o seguinte repositório em sua máquina: git@github.com:renanpbraga/desafio-tecnico1.git
+Digitar npm start
 
 ## Back-end
 A aplicação foi criada em padrão RESTful, seguindo a arquitetura MSC.
